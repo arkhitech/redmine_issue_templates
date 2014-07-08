@@ -1,0 +1,139 @@
+= Redmine Issue Templates Plugin 
+
+Plugin to generate and use issue templates for each project to assist issue creation. 
+For Redmine 2.1.x or later, please use version 0.0.4 or higher.
+For Redmine 2.0, please use version 0.0.3 or higher.
+For Redmine 1.3 and 1.4, please use support_0.0.2 branch.
+(https://bitbucket.org/akiko_pusu/redmine_issue_templates/src/4475e1668541)
+
+=== Plugin installation
+
+1. Copy the plugin directory into the vendor/plugins directory.
+   Please note that plugin's folder name should be "redmine_issue_templates".
+   If changed, some migration task will be failed.
+2. Do migration task. 
+  e.g. rake db:migrate_plugins RAILS_ENV=production
+  e.g. rake redmine:plugins:migrate RAILS_ENV=production  (For Redmine 2.x)
+3. (Re)Start Redmine.
+
+=== Uninstall
+
+Try this:
+
+* rake db:migrate_plugins NAME=redmine_issue_templates VERSION=0 RAILS_ENV=production
+
+See also: http://www.r-labs.org/projects/issue-template/wiki/About_en#Uninstall-plugin
+
+=== Required Settings
+
+1. Login to your Redmine install as an Administrator
+2. Enable the permissions for your Roles. 
+
+   Show issue templates: User can show issue templates and use templates when creating/updating issues.
+   Edit issue templates: User can create/update/activate templates for each project.
+   Manage issue templates: User can edit help message of templates for each project.
+
+3. Enable the module "Issue Template" on the project setting page.
+4. The link to the plugin should appear on that project's navigation.
+
+=== Note
+
+This plugin aims to assist contributor's feedback by using template if the 
+project has some format for issues.
+
+=== Repository
+
+* https://bitbucket.org/akiko_pusu/redmine_issue_templates
+
+=== WebPage
+
+* http://www.r-labs.org/projects/issue-template (Project Page)
+
+=== Description and usage info
+
+* http://www.r-labs.org/projects/issue-template/wiki/About_en
+
+== Changelog
+
+=== 0.0.9
+
+Bug fix relase.
+
+* Fix bug on ruby 1.8. (#52)
+* Remove feature to use JQuery tooltip to preview description, because useless. (#50)
+* Change css definition to avoide conflict with Redmine's base style. (#45)
+* Correct migration file to prevent uninstall error. (Related: #54)
+
+=== 0.0.8
+
+NOTE: Please run "rake redmine:plugins:migrate" task because new column
+  is added.
+
+* Fix some bugs.
+* Support global issue templates.
+* Try to use JQueryUI's tooltip.
+* Add Chinese / zh-TW translation file. Thank you so much, Chinese Spporter!
+
+Known issue:
+
+* Template loads every time Status is changed
+ * https://bitbucket.org/akiko_pusu/redmine_issue_templates/issue/36
+ * Only happned in case using default template.
+
+
+=== 0.0.7
+
+NOTE: Please run "rake redmine:plugins:migrate" task because new column
+  is added.
+
+* Fix some bugs.
+* Compatible with CKEditor.  (#1280)
+* Add feature to show warning message for orphaned templates. (#1278)
+* Inherited templates only should be listed which tracker is the same to 
+  child project use. (#1278)
+* Add French translation file. (Bitbucket IssueID:33)
+* Add Serbian translation. Thank you so much, Miodrag Milic. (Bitbucket IssueID:34)
+* Add option to change append or replace with template. (#1176)
+
+=== 0.0.6
+
+* Inherited templates from parent project.  (#1267)
+* Add links to template list/edit at project setting tab. (#1269)
+* Add link to erase issue subject and description text.
+* Replace :rubygems in Gemfile with 'https://rubygems.org'.
+  Thanks for JohnArcher.
+* Fixed invalid encoding. Thank you so much, Christoph. (#1178)
+* Fixed append "null" string to issue title field. (IssueID: #1268)
+* Prevent to load template when update and redirect with validation error.
+    (#1151, #1254)
+
+=== 0.0.5
+
+* Load default template.  (#1088)
+* Show warning message in case no project trackers are assigned.
+* Change CSS style when showing template. (#1141)
+
+=== 0.0.4
+
+* Support Redmine 2.1.x
+  (Now unsupport Redmine 2.0.x. Please use ver 0.0.3 for Redmine2.0.x)
+  Thak you so much, Viktor Muth, that gave me some feedback.
+
+* Now insert template text just after the text that is already in the
+  description field.  (#1115)
+
+=== Language and I18n contributors
+
+* Brazilian: Adriano Ceccarelli
+* Korean: Jaebok Oh
+* Chinese: Steven Wong
+* Bulgarian: Ivan Cenov
+* Russian: Denny Brain
+* German: Terence Miller and anonymous contributor
+* French: Anonymous one
+* Serbian: Miodrag Milic 
+
+
+=== License
+
+This software is licensed under the GNU GPL v2.

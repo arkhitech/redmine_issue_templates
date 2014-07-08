@@ -1,0 +1,43 @@
+# English strings go here for Rails i18n
+en:
+  issue_templates: Issue templates
+  issue_template: Issue template
+  issue_template_note: note
+  label_enabled: Enable
+  label_disabled: Disable
+  label_help_message: About templates
+  label_show_help_message: Show help message when create/update issues. 
+  about_help_message: Each project can customize help message for templates.
+  close_help: Close help message.
+  about_template_help_message: You can see the instruction of issue templates on this project.
+  label_enabled_help_message: Checkbox to activate (enabled) to this template. If you hope to save this template as draft, turn this checkbox off.
+  label_list_templates: "Template list"
+  label_new_templates: "Add template"
+  issue_template_name: "Template name"
+  issue_description: "Issue body"
+  issue_title: "Issue title"
+  label_applied_for_issue: "Fields applied for issue: "
+  help_for_issue_title: "If defined Issue title, this will also applied for issue when selecting template."
+  help_for_this_field: "Help for this field."
+  permission_manage_issue_templates: "Manage Templates"
+  permission_edit_issue_templates: "Edit Templates"
+  permission_show_issue_templates: "Show Templates"  
+  project_module_issue_templates: "Issue Templates"
+  label_isdefault_help_message: "Check and you can use this as a default template of target tracker."
+  defaulf_template_loaded: "Loaded default template into description textarea. (Tracker: %{tracker})"
+  text_no_tracker_enabled: "Any trackers for this project have not been configured yet.\nPlease set them first because templates are assigned to project trackers. "
+  label_enabled_sharing: "Enabled sharing with project tree."
+  label_inherit_templates: "Inherit templates"
+  label_inherit_templates_help_message: "Inherit templates from parent project. (Only parent's templates are listed which marked as enabled sharing with project tree.)"
+  label_inherited_templates: "Inherited templates"
+  no_issue_templates_for_this_project: "No issue templates are defined for this project."
+  link_to_index_edit_template: "Issue templates list / edit templates"
+  erase_issue_subject_and_description: "Clear subject and description text."
+  unused_tracker_at_this_project: "NOTE: This tracker is not defined to use for this project. Please re-define template setting if necessary."
+  label_enabledshaing_help_message: "If true, this template can be shared with descendant projects. (You also have to activate Inherited template option at child project.)"
+  label_should_replaced: "Replace subject and description"
+  label_should_replaced_help_message: "If true, existing subject and description are cleared and replaced with template text.（Default is false, and appended text.)"
+  global_issue_templates: "Global Issue Templates"
+  no_issue_templates_for_this_redmine: "No global issue templates are defined for this redmine."
+  only_admin_can_associate_global_template: "Only Redmine administrator can associate global templates with this project."
+  text_no_tracker_enabled_for_global: "Any trackers are not defined yet.\nPlease set them first because templates are assigned to trackers."
