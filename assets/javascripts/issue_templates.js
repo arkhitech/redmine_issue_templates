@@ -63,6 +63,8 @@ function load_template(target_url, token, confirm_msg, should_replaced) {
                 }
                 if (template[issue_template].issue_checklist_templates !== undefined) {
                     $('#checklist_form_items').children().remove();
+                    $('#issue_description').val(" ");
+                    $("#issue_description").val(template[issue_template].description);
                     //$('#issue_checklist_form').html('');
                     createIssueChecklist(template[issue_template].issue_checklist_templates);
                 }
