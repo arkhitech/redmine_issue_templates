@@ -6,4 +6,4 @@ group :test do
   gem "yard"
 end
 
-gem 'byebug'
+#gem 'byebug'
