@@ -28,7 +28,7 @@ $(document).ready(function() {
 // TODO: When update description, confirmation dialog should be appeared.
 function load_template(target_url, token, confirm_msg, should_replaced) {
     var allow_overwrite = $('#allow_overwrite_description').prop('checked');
-    if ($("#issue_template").val() != "") {
+    if ($("#issue_template").val() !== "") {
         var template_type = "";
         if ($("select[name=issue_template] option:selected").hasClass('global')) {
             template_type = "global";
@@ -42,17 +42,17 @@ function load_template(target_url, token, confirm_msg, should_replaced) {
             oldSubj = "";
             oldVal = "";
             eval('var template = ' + html);
-            if ($("#issue_description").val() != '' && should_replaced == 'false') {
+            if ($("#issue_description").val() !== '' && should_replaced === 'false') {
                 oldVal = $("#issue_description").val() + "\n\n";
             }
 
-            if ($("#issue_subject").val() != '' && should_replaced == 'false') {
+            if ($("#issue_subject").val() !== '' && should_replaced === 'false') {
                 oldValue = $("#issue_subject").val() + ' ';
             }
 
             for (var issue_template in template) {
-                template[issue_template].description = (template[issue_template].description == null) ? '' : template[issue_template].description;
-                template[issue_template].issue_title = (template[issue_template].issue_title == null) ? '' : template[issue_template].issue_title;
+                template[issue_template].description = (template[issue_template].description === null) ? '' : template[issue_template].description;
+                template[issue_template].issue_title = (template[issue_template].issue_title === null) ? '' : template[issue_template].issue_title;
                 $("#issue_description").val(oldVal + template[issue_template].description);
                 $("#issue_subject").val(oldSubj + template[issue_template].issue_title);
                 try {

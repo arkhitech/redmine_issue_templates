@@ -5,3 +5,5 @@ group :test do
   gem "simplecov-rcov"
   gem "yard"
 end
+
+gem 'byebug'
