@@ -62,6 +62,8 @@ function load_template(target_url, token, confirm_msg, should_replaced) {
                     // do nothing.
                 }
                 if (template[issue_template].issue_checklist_templates !== undefined) {
+                    $('#checklist_form_items').children().remove();
+                    //$('#issue_checklist_form').html('');
                     createIssueChecklist(template[issue_template].issue_checklist_templates);
                 }
 //                for (var i = 0; i < template[issue_template].issue_checklist_templates.length; i++) {
