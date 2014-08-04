@@ -29,7 +29,7 @@ class GlobalIssueTemplatesController < ApplicationController
       if @global_issue_template.save
         if params[:check_list_items]       
           for checklist_item in params[:check_list_items]
-            @global_issue_template.global_issue_checklist_templates.create!(checklist_item)
+            @global_issue_template.global_issue_checklist_templates.create(checklist_item)
           end
         end
         flash[:notice] = l(:notice_successful_create)
@@ -50,7 +50,7 @@ class GlobalIssueTemplatesController < ApplicationController
       if @global_issue_template.save
         if params[:check_list_items]       
           for checklist_item in params[:check_list_items]
-            @global_issue_template.global_issue_checklist_templates.create!(checklist_item)
+            @global_issue_template.global_issue_checklist_templates.create(checklist_item)
           end
         end
         flash[:notice] = l(:notice_successful_update)

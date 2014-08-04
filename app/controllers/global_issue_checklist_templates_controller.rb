@@ -1,3 +1,0 @@
-class GlobalIssueChecklistTemplatesController < ApplicationController
-  
-end

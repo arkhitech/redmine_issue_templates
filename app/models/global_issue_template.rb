@@ -7,8 +7,9 @@ class GlobalIssueTemplate < ActiveRecord::Base
   validates :tracker, :presence => true
   validates_uniqueness_of :title, :scope => :tracker_id
   acts_as_list :scope => :tracker
-  has_many :global_issue_checklist_templates
-  accepts_nested_attributes_for :global_issue_checklist_templates
+  has_many :issue_checklist_templates, :class_name => 'GlobalIssueChecklistTemplate'
+  
+  accepts_nested_attributes_for :issue_checklist_templates
   has_and_belongs_to_many :projects
 
   # author and project should be stable.
