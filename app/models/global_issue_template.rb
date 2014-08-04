@@ -35,6 +35,6 @@ class GlobalIssueTemplate < ActiveRecord::Base
   end
   
   def checklist
-    global_issue_checklist_templates || []
+    issue_checklist_templates || []
   end
 end
