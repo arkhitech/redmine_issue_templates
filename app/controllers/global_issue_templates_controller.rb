@@ -27,9 +27,10 @@ class GlobalIssueTemplatesController < ApplicationController
       # Case post, set attributes passed as parameters.
       @global_issue_template.safe_attributes = params[:global_issue_template]
       if @global_issue_template.save
+        @global_issue_template.issue_checklist_templates.destroy_all                
         if params[:check_list_items]       
           for checklist_item in params[:check_list_items]
-            @global_issue_template.global_issue_checklist_templates.create(checklist_item)
+            @global_issue_template.issue_checklist_templates.create(checklist_item)
           end
         end
         flash[:notice] = l(:notice_successful_create)
@@ -48,9 +49,10 @@ class GlobalIssueTemplatesController < ApplicationController
     if request.put?
       @global_issue_template.safe_attributes = params[:global_issue_template]
       if @global_issue_template.save
+        @global_issue_template.issue_checklist_templates.destroy_all 
         if params[:check_list_items]       
           for checklist_item in params[:check_list_items]
-            @global_issue_template.global_issue_checklist_templates.create(checklist_item)
+            @global_issue_template.issue_checklist_templates.create(checklist_item)
           end
         end
         flash[:notice] = l(:notice_successful_update)
