@@ -22,11 +22,16 @@ class GlobalIssueTemplatesController < ApplicationController
     @trackers = Tracker.all
     @projects = Project.all
     @global_issue_template = GlobalIssueTemplate.new(:author => @user,
-                                        :tracker => @tracker)
+      :tracker => @tracker)
     if request.post?
       # Case post, set attributes passed as parameters.
       @global_issue_template.safe_attributes = params[:global_issue_template]
       if @global_issue_template.save
+        if params[:check_list_items]       
+          for checklist_item in params[:check_list_items]
+            @global_issue_template.global_issue_checklist_templates.create!(checklist_item)
+          end
+        end
         flash[:notice] = l(:notice_successful_create)
         redirect_to :action => "show", :id => @global_issue_template.id
       end
@@ -35,6 +40,7 @@ class GlobalIssueTemplatesController < ApplicationController
 
   def show
     @projects = Project.all
+    
   end
 
   def edit
@@ -42,6 +48,11 @@ class GlobalIssueTemplatesController < ApplicationController
     if request.put?
       @global_issue_template.safe_attributes = params[:global_issue_template]
       if @global_issue_template.save
+        if params[:check_list_items]       
+          for checklist_item in params[:check_list_items]
+            @global_issue_template.global_issue_checklist_templates.create!(checklist_item)
+          end
+        end
         flash[:notice] = l(:notice_successful_update)
         redirect_to :action => "show", :id => @global_issue_template.id
 
