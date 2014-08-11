@@ -54,7 +54,7 @@ helpImg = baseurl + "/images/help.png"
   :id => @global_issue_template),
   'global_issue_template_description', target='preview' %> |
 <%= link_to l(:button_cancel), {:action => 'index'}, :data => {:confirm => l(:text_are_you_sure)} %>
-
+<%= render :partial => 'checklist_form', :locals => {global_issue_template: @global_issue_template}  %>
 <div class="box" >
   <% if @projects.any? %>
     <fieldset class="box" id="global_issue_template_project_ids"><legend><%= l(:label_project_plural) %></legend>
@@ -66,7 +66,7 @@ helpImg = baseurl + "/images/help.png"
   <% end %>
   <%= hidden_field_tag 'global_issue_template[project_ids][]', '' %>  
 </div>
-<%= render :partial => 'checklist_form', :locals => {global_issue_template: @global_issue_template}  %>
+
 <%= submit_tag l(@global_issue_template.new_record? ? :button_create : :button_save) %>
 
 
